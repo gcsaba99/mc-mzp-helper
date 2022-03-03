@@ -70,6 +70,9 @@ pos = {
 
 
 def get_row_and_blokk():
+    """
+    Lekéri konzolból hogy hanyadik sor és hanyadik blokktól nézze
+    """
     block = 0
     sor = sorok_szama - int(input("add meg a sor számát: (a legalsó sor az 1.)"))
     pos['sor'] = sor
@@ -81,6 +84,9 @@ def get_row_and_blokk():
 
 
 def get_segment():
+    """
+    Megadja a következő 5 színt
+    """
     row_length = len(image_data[pos['sor']].split(','))
     if pos['blokk'] + pos['hanyasaval'] > row_length:
         texts = image_data[pos['sor']].split(',')[pos['blokk']:row_length - 1]
@@ -91,6 +97,10 @@ def get_segment():
 
 
 def on_release(key):
+    """
+    OnKeyRelease event listener
+    :param key: a lenyomott billentyű
+    """
     if key == keyboard.Key.f6:
         pos['blokk'] += pos['hanyasaval']
         get_segment()
@@ -101,6 +111,10 @@ def on_release(key):
 
 
 def draw(texts: []):
+    """
+    Kirajzolja a szövegeket, képeket a képernyőre
+    :param texts: A színek tömbje
+    """
     DISPLAYSURF.fill((255, 238, 161))
     for i in range(len(texts)):
         # draw text
