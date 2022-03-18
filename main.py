@@ -48,7 +48,7 @@ def generate_data_file():
             color = get_color(mzp_region)
             # print(f"{i}: mzp region's color: {color}")
             image_array.write(color)
-            if not i == int(width/16) - 1:
+            if not i == int(width / 16) - 1:
                 image_array.write(',')
 
         if not j == int(height / 16) - 1:
@@ -107,6 +107,9 @@ def on_release(key):
     if key == keyboard.Key.f7:
         pos['blokk'] = 0
         pos['sor'] -= 1
+        get_segment()
+    if key == keyboard.Key.f8:
+        pos['blokk'] -= pos['hanyasaval']
         get_segment()
 
 
